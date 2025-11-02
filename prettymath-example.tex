@@ -1,0 +1,119 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1.5in]{geometry}
+\usepackage{prettymath}
+
+\setlength{\parskip}{0.8em}
+\setlength{\parindent}{0em}
+
+
+
+\title{Sample notes using the prettymath package}
+\author{}
+\date{\today}
+
+
+\begin{document}
+\maketitle
+
+\section{Integers and Parity}
+
+In these notes we demonstrate the environments using elementary concepts. We refer to Definition~\ref{def:even}, Lemma~\ref{lem:even-square}, Theorem~\ref{thm:parity}, Proposition~\ref{prop:divides}, Corollary~\ref{cor:even-square-by-4}, Claim~\ref{clm:odd-plus-odd}, and Exercise~\ref{ex:odd-product}.
+
+% tcbtheorem environments require a (possibly empty) title argument {}
+\begin{definition}{}{even}
+An integer $n$ is \emph{even} if there exists $k\in \mathbb{Z}$ with $n=2k$. An integer is \emph{odd} if there exists $k\in\mathbb{Z}$ with $n=2k+1$.
+\end{definition}
+In plain terms, an integer is even when it can be written as two times another integer, and it is odd when it can be written as two times an integer plus one.
+
+\begin{example}{}{even-ex}
+The integers $4$, $-6$, and $0$ are even; $3$ and $7$ are odd.
+\end{example}
+Said informally, four, negative six, and zero behave like even numbers, while three and seven behave like odd numbers.
+
+\begin{example}{}{even-ex-2}
+Since $12=2\cdot6$ and $-8=2\cdot(-4)$, both $12$ and $-8$ are even. Conversely, $5$ is not even because it cannot be written as $2k$ for any integer $k$.
+\end{example}
+Put differently, twelve and negative eight each equal two times another integer, whereas five fails to fit that even-number pattern.
+
+A lemma is a proven statement that serves as a supporting result for subsequent arguments.
+\begin{lemma}{}{even-square}
+If $n$ is even, then $n^2$ is even.
+\end{lemma}
+This tells us that whenever a number is even, its square will also be even.
+	
+\begin{proofbox}{}{}
+Write $n=2k$ for some $k\in\mathbb{Z}$. Then $n^2=(2k)^2=4k^2=2\,(2k^2)$, which is even.
+\end{proofbox}
+In words, by expressing the original number as two times an integer and then squaring, we see the result still contains a factor of two, so the square remains even.
+
+A claim is an assertion we intend to justify, usually as part of a broader argument.
+\begin{claim}{}{odd-plus-odd}
+The sum of two odd integers is even.
+\end{claim}
+That is, adding one odd number to another odd number always gives an even number.
+
+\begin{proofbox}{}{}
+Let $a=2r+1$ and $b=2s+1$ with $r,s\in\mathbb{Z}$. Then $a+b=2(r+s+1)$ is even.
+\end{proofbox}
+The reasoning is that each odd number looks like two times an integer plus one, and when you add two such expressions the two extra ones combine into another factor of two, so the total is even.
+
+A theorem is a central mathematical statement established from axioms and previously proven results.
+\begin{theorem}{}{parity}
+For integers $a$ and $b$:
+\begin{itemize}
+  \item even $+$ even $=$ even,
+  \item even $+$ odd $=$ odd,
+  \item odd $+$ odd $=$ even.
+\end{itemize}
+\end{theorem}
+In everyday language, adding two even numbers keeps the result even, mixing an even with an odd yields an odd sum, and combining two odd numbers produces an even sum.
+
+\begin{proofbox}{}{}
+Write $a$ and $b$ as $2r$ or $2r+1$ and add; each case follows immediately. The final case is exactly Claim~\ref{clm:odd-plus-odd}.
+\end{proofbox}
+The proof simply rewrites each number as either two times an integer or two times an integer plus one, checks each combination, and notes that the odd plus odd case has already been justified.
+
+A proposition is a true statement that is important but typically less prominent than a theorem.
+\begin{proposition}{}{divides}
+If $a\mid b$ and $b\mid c$ for integers $a,b,c$, then $a\mid c$.
+\end{proposition}
+This says that if one integer divides a second and that second divides a third, then the first also divides the third.
+
+\begin{proofbox}{}{}
+There exist $m,n\in\mathbb{Z}$ with $b=am$ and $c=bn$. Then $c=(am)n=a(mn)$, so $a\mid c$.
+\end{proofbox}
+In words, because the middle number equals the first times some integer and the last equals the middle times another integer, the last can be rewritten as the first times both integers together, so the divisibility passes through.
+
+A corollary is a result that follows directly from a previously established theorem or proposition.
+\begin{corollary}{}{even-square-by-4}
+If $n$ is even, then $n^2$ is divisible by $4$.
+\end{corollary}
+This observation notes that every even number has a square that can be split evenly into four parts.
+
+\begin{proofbox}{}{}
+By Lemma~\ref{lem:even-square} write $n=2k$. Then $n^2=4k^2$, a multiple of $4$.
+\end{proofbox}
+The justification rewrites the original number as two times an integer, squares it, and sees that the result contains two factors of two, guaranteeing divisibility by four.
+
+A remark records an ancillary observation or clarification that complements the main discussion.
+\begin{remark}
+From Definition~\ref{def:even}, every integer is exactly one of even or odd.
+\end{remark}
+In short, each whole number is either even or odd and never both.
+
+\subsection{Exercises: Integers and Parity}
+
+\begin{exercise}{}{odd-product}
+Show that the product of two odd integers is odd.
+\end{exercise}
+
+\begin{solution}{}{}
+Let $a=2r+1$ and $b=2s+1$. Then
+\[
+ab=(2r+1)(2s+1)=4rs+2r+2s+1=2\bigl(2rs+r+s\bigr)+1,
+\]
+which is odd.
+\end{solution}
+The solution writes each odd number as two times an integer plus one, multiplies them, and observes that the result still has the form of two times an integer plus one, so it stays odd.
+
+\end{document}
