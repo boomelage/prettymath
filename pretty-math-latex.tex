@@ -6,8 +6,16 @@
 \setlength{\parskip}{0.8em}
 \setlength{\parindent}{0em}
 
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	citecolor=blue,
+	urlcolor=blue,
+	pdfborder={0 0 0}
+}
+
 \newtcbtheorem
-[]% init options
+[number within=section]% init options
 {definition}% name
 {Definition}% title
 {%
@@ -18,7 +26,7 @@
 {def}% prefix
 
 \newtcbtheorem
-[]% init options
+[number within=section]% init options
 {theorem}% name
 {Theorem}% title
 {%
@@ -29,7 +37,51 @@
 {thm}% prefix
 
 \newtcbtheorem
-[]% init options
+[use counter from=theorem]% init options
+{lemma}% name
+{Lemma}% title
+{%
+	colback=orange!5,
+	colframe=orange!70!black,
+	fonttitle=\bfseries,
+}% options
+{lem}% prefix
+
+\newtcbtheorem
+[use counter from=theorem]% init options
+{proposition}% name
+{Proposition}% title
+{%
+	colback=orange!5,
+	colframe=orange!70!black,
+	fonttitle=\bfseries,
+}% options
+{prop}% prefix
+
+\newtcbtheorem
+[use counter from=theorem]% init options
+{corollary}% name
+{Corollary}% title
+{%
+	colback=orange!5,
+	colframe=orange!70!black,
+	fonttitle=\bfseries,
+}% options
+{cor}% prefix
+
+\newtcbtheorem
+[use counter from=theorem]% init options
+{claim}% name
+{Claim}% title
+{%
+	colback=orange!5,
+	colframe=orange!70!black,
+	fonttitle=\bfseries,
+}% options
+{clm}% prefix
+
+\newtcbtheorem
+[number within=section]% init options
 {example}% name
 {Example}% title
 {%
@@ -40,7 +92,29 @@
 {egg}% prefix
 
 \newtcbtheorem
-[]% init options
+[number within=section]% init options
+{exercise}% name
+{Exercise}% title
+{%
+	colback=purple!5,
+	colframe=purple!60!black,
+	fonttitle=\bfseries,
+}% options
+{ex}% prefix
+
+\newtcbtheorem
+[no counter]% init options
+{solution}% name
+{Solution}% title
+{%
+	colback=red!5,
+	colframe=red!35!black,
+	fonttitle=\bfseries,
+}% options
+{sol}% prefix
+
+\newtcbtheorem
+[no counter]% init options
 {proofbox}% name
 {Proof}% title
 {%
@@ -53,11 +127,87 @@
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
 
-\title{}
+
+\title{Sample Notes: Elementary Theorem Environments}
 \author{}
 \date{\today}
 
 
 \begin{document}
-	
+\maketitle
+
+\section{Integers and Parity}
+
+In these notes we demonstrate the environments using elementary concepts. We refer to Definition~\ref{def:even}, Lemma~\ref{lem:even-square}, Theorem~\ref{thm:parity}, Proposition~\ref{prop:divides}, Corollary~\ref{cor:even-square-by-4}, Claim~\ref{clm:odd-plus-odd}, and Exercise~\ref{ex:odd-product}.
+
+% tcbtheorem environments require a (possibly empty) title argument {}
+\begin{definition}{}{even}
+An integer $n$ is \emph{even} if there exists $k\in \mathbb{Z}$ with $n=2k$. An integer is \emph{odd} if there exists $k\in\mathbb{Z}$ with $n=2k+1$.
+\end{definition}
+
+\begin{example}{}{even-ex}
+The integers $4$, $-6$, and $0$ are even; $3$ and $7$ are odd.
+\end{example}
+
+\begin{lemma}{}{even-square}
+If $n$ is even, then $n^2$ is even.
+\end{lemma}
+
+\begin{proofbox}{}{}
+Write $n=2k$ for some $k\in\mathbb{Z}$. Then $n^2=(2k)^2=4k^2=2\,(2k^2)$, which is even.
+\end{proofbox}
+
+\begin{claim}{}{odd-plus-odd}
+The sum of two odd integers is even.
+\end{claim}
+
+\begin{proofbox}{}{}
+Let $a=2r+1$ and $b=2s+1$ with $r,s\in\mathbb{Z}$. Then $a+b=2(r+s+1)$ is even.
+\end{proofbox}
+
+\begin{theorem}{}{parity}
+For integers $a$ and $b$:
+\begin{itemize}
+  \item even $+$ even $=$ even,
+  \item even $+$ odd $=$ odd,
+  \item odd $+$ odd $=$ even.
+\end{itemize}
+\end{theorem}
+
+\begin{proofbox}{}{}
+Write $a$ and $b$ as $2r$ or $2r+1$ and add; each case follows immediately. The final case is exactly Claim~\ref{clm:odd-plus-odd}.
+\end{proofbox}
+
+\begin{proposition}{}{divides}
+If $a\mid b$ and $b\mid c$ for integers $a,b,c$, then $a\mid c$.
+\end{proposition}
+
+\begin{proofbox}{}{}
+There exist $m,n\in\mathbb{Z}$ with $b=am$ and $c=bn$. Then $c=(am)n=a(mn)$, so $a\mid c$.
+\end{proofbox}
+
+\begin{corollary}{}{even-square-by-4}
+If $n$ is even, then $n^2$ is divisible by $4$.
+\end{corollary}
+
+\begin{proofbox}{}{}
+By Lemma~\ref{lem:even-square} write $n=2k$. Then $n^2=4k^2$, a multiple of $4$.
+\end{proofbox}
+
+\begin{remark}
+From Definition~\ref{def:even}, every integer is exactly one of even or odd.
+\end{remark}
+
+\begin{exercise}{}{odd-product}
+Show that the product of two odd integers is odd.
+\end{exercise}
+
+\begin{solution}{}{}
+Let $a=2r+1$ and $b=2s+1$. Then
+\[
+ab=(2r+1)(2s+1)=4rs+2r+2s+1=2\bigl(2rs+r+s\bigr)+1,
+\]
+which is odd.
+\end{solution}
+
 \end{document}
