@@ -81,7 +81,7 @@
 {clm}% prefix
 
 \newtcbtheorem
-[number within=section]% init options
+[number within=definition]% init options
 {example}% name
 {Example}% title
 {%
@@ -124,6 +124,12 @@
 }% options
 {prf}% prefix
 
+% Numbering formats for nested Example within Definition
+\makeatletter
+\newcommand{\thedefinition}{\thesection.\arabic{tcb@cnt@definition}}
+\newcommand{\theexample}{\thedefinition.\arabic{tcb@cnt@example}}
+\makeatother
+
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
 
@@ -149,10 +155,14 @@ An integer $n$ is \emph{even} if there exists $k\in \mathbb{Z}$ with $n=2k$. An 
 The integers $4$, $-6$, and $0$ are even; $3$ and $7$ are odd.
 \end{example}
 
+\begin{example}{}{even-ex-2}
+Since $12=2\cdot6$ and $-8=2\cdot(-4)$, both $12$ and $-8$ are even. Conversely, $5$ is not even because it cannot be written as $2k$ for any integer $k$.
+\end{example}
+
 \begin{lemma}{}{even-square}
 If $n$ is even, then $n^2$ is even.
 \end{lemma}
-
+	
 \begin{proofbox}{}{}
 Write $n=2k$ for some $k\in\mathbb{Z}$. Then $n^2=(2k)^2=4k^2=2\,(2k^2)$, which is even.
 \end{proofbox}
