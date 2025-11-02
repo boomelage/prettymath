@@ -1,0 +1,63 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{amsmath, amssymb, graphicx, amsthm, hyperref, geometry, tcolorbox}
+\tcbuselibrary{theorems}
+\geometry{margin=1in}
+\setlength{\parskip}{0.8em}
+\setlength{\parindent}{0em}
+
+\newtcbtheorem
+[]% init options
+{definition}% name
+{Definition}% title
+{%
+	colback=green!5,
+	colframe=green!35!black,
+	fonttitle=\bfseries,
+}% options
+{def}% prefix
+
+\newtcbtheorem
+[]% init options
+{theorem}% name
+{Theorem}% title
+{%
+	colback=orange!5,
+	colframe=orange!70!black,
+	fonttitle=\bfseries,
+}% options
+{thm}% prefix
+
+\newtcbtheorem
+[]% init options
+{example}% name
+{Example}% title
+{%
+	colback=blue!5,
+	colframe=blue!35!black,
+	fonttitle=\bfseries,
+}% options
+{egg}% prefix
+
+\newtcbtheorem
+[]% init options
+{proofbox}% name
+{Proof}% title
+{%
+	colback=red!5,
+	colframe=red!35!black,
+	fonttitle=\bfseries,
+}% options
+{prf}% prefix
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\title{}
+\author{}
+\date{\today}
+
+
+\begin{document}
+	
+\end{document}
