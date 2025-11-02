@@ -1,0 +1,103 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{prettymath}[2025/11/02 v0.1 Pretty math theorem boxes]
+
+% Core packages
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{graphicx}
+\RequirePackage{amsthm}
+\RequirePackage{hyperref}
+\RequirePackage{tcolorbox}
+\tcbuselibrary{theorems}
+
+% Hyperref defaults (override after loading the package)
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue,
+  pdfborder={0 0 0}
+}
+
+% Boxed theorem environments
+\newtcbtheorem
+[number within=section]{definition}{Definition}{%
+  colback=green!5,
+  colframe=green!35!black,
+  fonttitle=\bfseries,
+}{def}
+
+\newtcbtheorem
+[number within=section]{theorem}{Theorem}{%
+  colback=orange!5,
+  colframe=orange!70!black,
+  fonttitle=\bfseries,
+}{thm}
+
+\newtcbtheorem
+[use counter from=theorem]{lemma}{Lemma}{%
+  colback=orange!5,
+  colframe=orange!70!black,
+  fonttitle=\bfseries,
+}{lem}
+
+\newtcbtheorem
+[use counter from=theorem]{proposition}{Proposition}{%
+  colback=orange!5,
+  colframe=orange!70!black,
+  fonttitle=\bfseries,
+}{prop}
+
+\newtcbtheorem
+[use counter from=theorem]{corollary}{Corollary}{%
+  colback=orange!5,
+  colframe=orange!70!black,
+  fonttitle=\bfseries,
+}{cor}
+
+\newtcbtheorem
+[use counter from=theorem]{claim}{Claim}{%
+  colback=orange!5,
+  colframe=orange!70!black,
+  fonttitle=\bfseries,
+}{clm}
+
+\newtcbtheorem
+[number within=definition]{example}{Example}{%
+  colback=blue!5,
+  colframe=blue!35!black,
+  fonttitle=\bfseries,
+}{egg}
+
+\newtcbtheorem
+[number within=section]{exercise}{Exercise}{%
+  colback=purple!5,
+  colframe=purple!60!black,
+  fonttitle=\bfseries,
+}{ex}
+
+\newtcbtheorem
+[no counter]{solution}{Solution}{%
+	colback=red!5,
+	colframe=red!35!black,
+	fonttitle=\bfseries,
+}{sol}
+
+\newtcbtheorem
+[use counter from=theorem]{proofbox}{Proof}{%
+	colback=gray!5,
+	colframe=gray!60!black,
+	fonttitle=\bfseries,
+}{prf}  
+  
+% Numbering formats for nested Example within Definition
+\makeatletter
+\newcommand{\thedefinition}{\thesection.\arabic{tcb@cnt@definition}}
+\newcommand{\theexample}{\thedefinition.\arabic{tcb@cnt@example}}
+\makeatother
+
+% Remark environment via amsthm
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\endinput
