@@ -1,19 +1,33 @@
 \documentclass[11pt,a4paper]{article}
-\usepackage[margin=1.5in]{geometry}
+\usepackage[margin=3cm]{geometry}
 \usepackage{prettymath}
 
 \setlength{\parskip}{0.8em}
 \setlength{\parindent}{0em}
 
-
-
 \title{Sample notes using the prettymath package}
-\author{}
+\author{Radu Briciu}
 \date{\today}
 
 
 \begin{document}
-\maketitle
+	
+\pagenumbering{roman}
+\begin{titlepage}
+	\vfill
+	\begin{center}
+		\huge{Sample notes using the \href{https://github.com/boomelage/prettymath/blob/e4b6f0a6f1508e82686c20fdde10e6ff6c494d7f/prettymath.sty}{\texttt{prettymath}} package} \\
+		\vspace{3em}
+		\tiny by \\
+		\small \href{https://github.com/boomelage}{\texttt{boomelage}}
+	\end{center}
+	\vfill
+	\tableofcontents
+	\vfill
+\end{titlepage}
+
+\clearpage
+\pagenumbering{arabic}
 
 \section{Integers and Parity}
 
@@ -114,6 +128,113 @@ ab=(2r+1)(2s+1)=4rs+2r+2s+1=2\bigl(2rs+r+s\bigr)+1,
 \]
 which is odd.
 \end{solution}
-The solution writes each odd number as two times an integer plus one, multiplies them, and observes that the result still has the form of two times an integer plus one, so it stays odd.
+%The solution writes each odd number as two times an integer plus one, multiplies them, and observes that the result still has the form of two times an integer plus one, so it stays odd.
+
+\newpage
+
+\section{Functions}
+
+A function formalizes the idea of assigning exactly one output to each input.
+\begin{definition}{}{function}
+Let $A$ and $B$ be nonempty sets. A \emph{function} $f$ from $A$ to $B$, written $f\colon A\to B$, is a rule that assigns to every element $a\in A$ exactly one element $f(a)\in B$. The set $A$ is the \emph{domain} and the set $B$ is the \emph{codomain}.
+\end{definition}
+In plainer language, $f\colon A\to B$ means ``for each element of $A$ there is a well-defined output living in $B$,'' and no input is left without an output or matched to more than one.
+
+\begin{example}{}{function-square}
+Define $f\colon \mathbb{R}\to \mathbb{R}$ by $f(x)=x^2+1$. For each real number $x$, the output $f(x)$ is the real number obtained by squaring $x$ and adding $1$.
+\end{example}
+Here $\mathbb{R}$ denotes the set of all real numbers. The expression $x^2$ means $x$ multiplied by itself, and the formula $x^2+1$ says we then add $1$ to that product.
+
+\begin{example}{}{function-table}
+Let $A=\{1,2,3\}$ and $B=\{\text{red},\text{blue},\text{green}\}$. The rule $f(1)=\text{red}$, $f(2)=\text{green}$, $f(3)=\text{blue}$ defines a function $f\colon A\to B$.
+\end{example}
+Because every element of $A$ is assigned exactly one color from $B$, this rule satisfies the definition of a function.
+
+\subsection{Exercises: Functions}
+
+\begin{exercise}{}{function-exercise}
+Let $g\colon \mathbb{Z}\to \mathbb{Z}$ be defined by $g(n)=3n-4$. Determine $g(-2)$ and decide whether $g$ is a function.
+\end{exercise}
+
+\begin{solution}{}{function-exercise-solution}
+Substituting $n=-2$ gives $g(-2)=3(-2)-4=-6-4=-10$. The rule $3n-4$ produces exactly one integer output for each integer input, so $g$ is a function from $\mathbb{Z}$ to $\mathbb{Z}$.
+\end{solution}
+The notation $\mathbb{Z}$ stands for the set of all integers, and the expression $3n-4$ means ``triple the input $n$ and subtract four.''
+
+\section{Derivatives}
+
+\begin{definition}{}{derivative}
+Let $f\colon \mathbb{R}\to \mathbb{R}$ be a function and let $a\in\mathbb{R}$. The \emph{derivative} of $f$ at $a$, denoted $f'(a)$, is the limit
+\[
+f'(a)=\lim_{h\to 0}\frac{f(a+h)-f(a)}{h}
+\]
+provided this limit exists. The symbol $\lim_{h\to 0}$ means we observe the ratio as $h$ approaches $0$, and the quotient measures the average rate of change over the small increment $h$.
+\end{definition}
+In everyday terms, the derivative captures how quickly $f$ changes near $a$; it is the slope of the tangent line to the graph of $f$ at the point with $x$-coordinate $a$.
+
+\begin{example}{}{derivative-square}
+Consider $f(x)=x^2$. Then
+\[
+f'(a)=\lim_{h\to 0}\frac{(a+h)^2-a^2}{h}=\lim_{h\to 0}\frac{2ah+h^2}{h}=\lim_{h\to 0}(2a+h)=2a.
+\]
+\end{example}
+The algebra expands $(a+h)^2$ into $a^2+2ah+h^2$, subtracts $a^2$, and then divides by $h$. As $h$ shrinks toward $0$, the remaining term $h$ vanishes, leaving the slope $2a$.
+
+\begin{example}{}{derivative-sine}
+Let $f(x)=\sin x$, where $\sin x$ denotes the sine of the real number $x$ measured in radians. Using the standard limit $\lim_{h\to 0}\frac{\sin h}{h}=1$ and the identity $\sin(a+h)=\sin a\cos h+\cos a\sin h$, one finds $f'(a)=\cos a$.
+\end{example}
+This computation captures the rate at which the sine function oscillates, and it shows that the cosine function gives the instantaneous slope of the sine curve.
+
+\subsection{Exercises: Derivatives}
+
+\begin{exercise}{}{derivative-exercise}
+Let $f(x)=3x^3-5x$. Compute $f'(x)$ and evaluate $f'(1)$.
+\end{exercise}
+
+\begin{solution}{}{derivative-exercise-solution}
+Differentiate term by term: $\frac{d}{dx}(3x^3)=9x^2$ and $\frac{d}{dx}(-5x)=-5$. Thus $f'(x)=9x^2-5$, and substituting $x=1$ yields $f'(1)=9(1)^2-5=4$.
+\end{solution}
+Here $\frac{d}{dx}$ denotes the derivative with respect to $x$, and $x^3$ means $x$ multiplied by itself three times.
+
+\section{Integrals}
+
+\begin{definition}{}{integral}
+Let $f\colon [a,b]\to \mathbb{R}$ be a bounded function, where $[a,b]=\{x\in\mathbb{R}\mid a\le x\le b\}$. The \emph{definite integral} of $f$ from $a$ to $b$ is the limit
+\[
+\int_a^b f(x)\,dx=\lim_{n\to\infty}\sum_{k=1}^{n} f(x_k^*)\Delta x,
+\]
+when this limit exists. Here the interval $[a,b]$ is subdivided into $n$ pieces of width $\Delta x=\frac{b-a}{n}$, and $x_k^*$ is a sample point in the $k$th subinterval.
+\end{definition}
+Informally, $\int_a^b f(x)\,dx$ adds up the values of $f$ across the interval $[a,b]$, multiplying each value by a very small width $\Delta x$. The result represents the signed area under the graph of $f$ between $x=a$ and $x=b$.
+
+\begin{example}{}{integral-square}
+Compute $\int_0^1 x^2\,dx$. Using the antiderivative $\frac{x^3}{3}$ we obtain
+\[
+\int_0^1 x^2\,dx=\left.\frac{x^3}{3}\right|_{0}^{1}=\frac{1^3}{3}-\frac{0^3}{3}=\frac{1}{3}.
+\]
+\end{example}
+The vertical bar notation $\left.\frac{x^3}{3}\right|_{0}^{1}$ means evaluate $\frac{x^3}{3}$ at $x=1$ and subtract its value at $x=0$.
+
+\begin{example}{}{integral-sine}
+Using the antiderivative $-\cos x$ of $\sin x$, evaluate $\int_{0}^{\pi}\sin x\,dx$:
+\[
+\int_{0}^{\pi}\sin x\,dx=\left.-\cos x\right|_{0}^{\pi}=-\cos \pi-(-\cos 0)=(-(-1))-(-1)=2.
+\]
+\end{example}
+The symbol $\pi$ denotes the constant approximately equal to $3.14159$, and $\cos x$ is the cosine function. The calculation shows the total signed area under one half-wave of the sine curve equals $2$.
+
+\subsection{Exercises: Integrals}
+
+\begin{exercise}{}{integral-exercise}
+Evaluate $\int_{1}^{4} \frac{1}{\sqrt{x}}\,dx$, where $\sqrt{x}$ denotes the positive square root of $x$.
+\end{exercise}
+
+\begin{solution}{}{integral-exercise-solution}
+Rewrite $\frac{1}{\sqrt{x}}$ as $x^{-1/2}$. An antiderivative is $\frac{x^{1/2}}{1/2}=2\sqrt{x}$. Therefore
+\[
+\int_{1}^{4} \frac{1}{\sqrt{x}}\,dx=\left.2\sqrt{x}\right|_{1}^{4}=2\sqrt{4}-2\sqrt{1}=2\cdot 2-2\cdot 1=2.
+\]
+\end{solution}
+Because $\sqrt{4}=2$ and $\sqrt{1}=1$, the integral evaluates to $2$. The notation $x^{-1/2}$ means $\frac{1}{x^{1/2}}=\frac{1}{\sqrt{x}}$.
 
 \end{document}
