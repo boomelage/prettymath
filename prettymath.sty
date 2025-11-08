@@ -90,6 +90,22 @@
 	fonttitle=\bfseries,
 }{prf}
 
+% Remark environment via amsthm
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+% Numbering formats for nested Example within Definition
+\makeatletter
+% Ensure Example counter resets at each new Definition
+\@addtoreset{tcb@cnt@example}{tcb@cnt@definition}
+
+% Numbering formats for nested Example within Definition
+\makeatletter
+\def\thedefinition{\thesection.\arabic{tcb@cnt@definition}}
+\def\thetcb@cnt@example{\thedefinition\alph{tcb@cnt@example}}
+\@addtoreset{tcb@cnt@example}{tcb@cnt@definition}
+\makeatother
+
 % Convenience wrapper: solution matching an exercise number
 % Usage: \begin{exercisesolution}{<exercise-label-suffix>} ... \end{exercisesolution}
 % Example: exercisesolution{intervals-inequalities} will title as
@@ -99,16 +115,12 @@
 	}{%
 	\end{solution}%
 }
-  
-% Numbering formats for nested Example within Definition
-\makeatletter
-\def\thedefinition{\thesection.\arabic{tcb@cnt@definition}}
-\def\thetcb@cnt@example{\thedefinition\alph{tcb@cnt@example}}
-\@addtoreset{tcb@cnt@example}{tcb@cnt@definition}
-\makeatother
 
-% Remark environment via amsthm
-\theoremstyle{remark}
-\newtheorem*{remark}{Remark}
+% Override exercisesolution to avoid duplicated name/title separator
+\renewenvironment{exercisesolution}[1]{%
+	\begin{solution}[theorem name={},separator sign={}]{\getrefnumber{ex:#1}}{sol:#1}%
+	}{%
+	\end{solution}%
+}
 
 \endinput

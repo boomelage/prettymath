@@ -120,14 +120,14 @@ In short, each whole number is either even or odd and never both.
 Show that the product of two odd integers is odd.
 \end{exercise}
 
-\begin{solution}{}{}
+\begin{exercisesolution}{odd-product}
 Let $a=2r+1$ and $b=2s+1$. Then
 \[
 ab=(2r+1)(2s+1)=4rs+2r+2s+1=2\bigl(2rs+r+s\bigr)+1,
 \]
 which is odd.
-\end{solution}
-%The solution writes each odd number as two times an integer plus one, multiplies them, and observes that the result still has the form of two times an integer plus one, so it stays odd.
+\end{exercisesolution}
+The solution writes each odd number as two times an integer plus one, multiplies them, and observes that the result still has the form of two times an integer plus one, so it stays odd.
 
 \section{Functions}
 
@@ -153,9 +153,9 @@ Because every element of $A$ is assigned exactly one color from $B$, this rule s
 Let $g\colon \mathbb{Z}\to \mathbb{Z}$ be defined by $g(n)=3n-4$. Determine $g(-2)$ and decide whether $g$ is a function.
 \end{exercise}
 
-\begin{solution}{}{function-exercise-solution}
+\begin{exercisesolution}{function-exercise}
 Substituting $n=-2$ gives $g(-2)=3(-2)-4=-6-4=-10$. The rule $3n-4$ produces exactly one integer output for each integer input, so $g$ is a function from $\mathbb{Z}$ to $\mathbb{Z}$.
-\end{solution}
+\end{exercisesolution}
 The notation $\mathbb{Z}$ stands for the set of all integers, and the expression $3n-4$ means ``triple the input $n$ and subtract four.''
 
 \section{Derivatives}
@@ -188,9 +188,9 @@ This computation captures the rate at which the sine function oscillates, and it
 Let $f(x)=3x^3-5x$. Compute $f'(x)$ and evaluate $f'(1)$.
 \end{exercise}
 
-\begin{solution}{}{derivative-exercise-solution}
+\begin{exercisesolution}{derivative-exercise}
 Differentiate term by term: $\frac{d}{dx}(3x^3)=9x^2$ and $\frac{d}{dx}(-5x)=-5$. Thus $f'(x)=9x^2-5$, and substituting $x=1$ yields $f'(1)=9(1)^2-5=4$.
-\end{solution}
+\end{exercisesolution}
 Here $\frac{d}{dx}$ denotes the derivative with respect to $x$, and $x^3$ means $x$ multiplied by itself three times.
 
 \section{Integrals}
@@ -226,12 +226,15 @@ The symbol $\pi$ denotes the constant approximately equal to $3.14159$, and $\co
 Evaluate $\int_{1}^{4} \frac{1}{\sqrt{x}}\,dx$, where $\sqrt{x}$ denotes the positive square root of $x$.
 \end{exercise}
 
-\begin{solution}{}{integral-exercise-solution}
+\begin{exercisesolution}{integral-exercise}
 Rewrite $\frac{1}{\sqrt{x}}$ as $x^{-1/2}$. An antiderivative is $\frac{x^{1/2}}{1/2}=2\sqrt{x}$. Therefore
 \[
 \int_{1}^{4} \frac{1}{\sqrt{x}}\,dx=\left.2\sqrt{x}\right|_{1}^{4}=2\sqrt{4}-2\sqrt{1}=2\cdot 2-2\cdot 1=2.
 \]
-\end{solution}
+\end{exercisesolution}
 Because $\sqrt{4}=2$ and $\sqrt{1}=1$, the integral evaluates to $2$. The notation $x^{-1/2}$ means $\frac{1}{x^{1/2}}=\frac{1}{\sqrt{x}}$.
+
+
+
 
 \end{document}
