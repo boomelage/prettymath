@@ -13,6 +13,7 @@
 - **Definition/example linkage**: examples reset within each definition and gain alphabetic suffixes (`Definition X.Y` hosts `Example X.Ya`, `X.Yb`, …) to emphasize the attachment.
 - **Unnumbered proofs and solutions**: `proofbox` and `solution` frame arguments without imposing counters, ideal for inline reasoning.
 - **Exercise tracking**: dedicated exercise counter per section to keep problem sets organized.
+- **Exercise-solution cross links**: the convenience `exercisesolution` wrapper titles each solution with a clickable reference back to its exercise, forcing the link text to render white so it stays legible inside the purple header even if you globally prefer dark hyperlink colours.
 - **Opinionated hyperlink defaults** via `hyperref`, enabling coloured links and borderless PDF outlines out of the box.
 
 ## Provided Environments

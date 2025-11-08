@@ -1,5 +1,5 @@
 \documentclass[11pt,a4paper]{article}
-\usepackage[margin=3cm]{geometry}
+\usepackage[margin=1.5in]{geometry}
 \usepackage{prettymath}
 \setlength{\parskip}{0.8em}
 \setlength{\parindent}{0em}
@@ -114,7 +114,7 @@ From Definition~\ref{def:even}, every integer is exactly one of even or odd.
 \end{remark}
 In short, each whole number is either even or odd and never both.
 
-\subsection{Exercises: Integers and Parity}
+\subsection*{Exercises: Integers and Parity}
 
 \begin{exercise}{}{odd-product}
 Show that the product of two odd integers is odd.
@@ -147,7 +147,7 @@ Let $A=\{1,2,3\}$ and $B=\{\text{red},\text{blue},\text{green}\}$. The rule $f(1
 \end{example}
 Because every element of $A$ is assigned exactly one color from $B$, this rule satisfies the definition of a function.
 
-\subsection{Exercises: Functions}
+\subsection*{Exercises: Functions}
 
 \begin{exercise}{}{function-exercise}
 Let $g\colon \mathbb{Z}\to \mathbb{Z}$ be defined by $g(n)=3n-4$. Determine $g(-2)$ and decide whether $g$ is a function.
@@ -182,7 +182,7 @@ Let $f(x)=\sin x$, where $\sin x$ denotes the sine of the real number $x$ measur
 \end{example}
 This computation captures the rate at which the sine function oscillates, and it shows that the cosine function gives the instantaneous slope of the sine curve.
 
-\subsection{Exercises: Derivatives}
+\subsection*{Exercises: Derivatives}
 
 \begin{exercise}{}{derivative-exercise}
 Let $f(x)=3x^3-5x$. Compute $f'(x)$ and evaluate $f'(1)$.
@@ -220,7 +220,7 @@ Using the antiderivative $-\cos x$ of $\sin x$, evaluate $\int_{0}^{\pi}\sin x\,
 \end{example}
 The symbol $\pi$ denotes the constant approximately equal to $3.14159$, and $\cos x$ is the cosine function. The calculation shows the total signed area under one half-wave of the sine curve equals $2$.
 
-\subsection{Exercises: Integrals}
+\subsection*{Exercises: Integrals}
 
 \begin{exercise}{}{integral-exercise}
 Evaluate $\int_{1}^{4} \frac{1}{\sqrt{x}}\,dx$, where $\sqrt{x}$ denotes the positive square root of $x$.
@@ -231,10 +231,7 @@ Rewrite $\frac{1}{\sqrt{x}}$ as $x^{-1/2}$. An antiderivative is $\frac{x^{1/2}}
 \[
 \int_{1}^{4} \frac{1}{\sqrt{x}}\,dx=\left.2\sqrt{x}\right|_{1}^{4}=2\sqrt{4}-2\sqrt{1}=2\cdot 2-2\cdot 1=2.
 \]
-\end{exercisesolution}
+\end{exercisesolution}~\label{integral-solution}
 Because $\sqrt{4}=2$ and $\sqrt{1}=1$, the integral evaluates to $2$. The notation $x^{-1/2}$ means $\frac{1}{x^{1/2}}=\frac{1}{\sqrt{x}}$.
-
-
-
 
 \end{document}

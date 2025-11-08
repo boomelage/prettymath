@@ -13,8 +13,8 @@
 % Hyperref defaults (override after loading the package)
 \hypersetup{
   colorlinks=true,
-  linkcolor=blue,
-  citecolor=blue,
+  linkcolor=black,
+  citecolor=black,
   urlcolor=blue,
   pdfborder={0 0 0}
 }
@@ -94,8 +94,6 @@
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
 
-% Numbering formats for nested Example within Definition
-\makeatletter
 % Ensure Example counter resets at each new Definition
 \@addtoreset{tcb@cnt@example}{tcb@cnt@definition}
 
@@ -118,7 +116,12 @@
 
 % Override exercisesolution to avoid duplicated name/title separator
 \renewenvironment{exercisesolution}[1]{%
-	\begin{solution}[theorem name={},separator sign={}]{\getrefnumber{ex:#1}}{sol:#1}%
+	\begin{solution}[theorem name={},separator sign={}]{%
+		\begingroup%
+			\hypersetup{linkcolor=white}%
+			\hyperref[ex:#1]{\getrefnumber{ex:#1}}%
+		\endgroup%
+	}{sol:#1}%
 	}{%
 	\end{solution}%
 }
