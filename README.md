@@ -10,7 +10,7 @@
 ## Features
 - **Boxed theorem environments** powered by `tcolorbox`, each with tailored colours and bold headings to distinguish content types at a glance.
 - **Shared numbering** for theorem-like statements: theorems, lemmas, propositions, corollaries, and claims all share the same counter (per section) for coherent references.
-- **Definition/example linkage**: examples reset within definitions (`Definition X.Y` hosts `Example X.Y.Z`) to tie usage directly to newly introduced concepts.
+- **Definition/example linkage**: examples reset within each definition and gain alphabetic suffixes (`Definition X.Y` hosts `Example X.Ya`, `X.Yb`, …) to emphasize the attachment.
 - **Unnumbered proofs and solutions**: `proofbox` and `solution` frame arguments without imposing counters, ideal for inline reasoning.
 - **Exercise tracking**: dedicated exercise counter per section to keep problem sets organized.
 - **Opinionated hyperlink defaults** via `hyperref`, enabling coloured links and borderless PDF outlines out of the box.
@@ -19,7 +19,7 @@
 | Environment | Counter Behaviour                | Default Colours (background / frame) | Typical Usage                        |
 |-------------|----------------------------------|---------------------------------------|--------------------------------------|
 | `definition`| Numbered within sections         | `green!5` / `green!35!black`          | Formal definitions                   |
-| `example`   | Numbered within the current definition | `blue!5` / `blue!35!black`     | Illustrations tied to a definition   |
+| `example`   | Numbered within the current definition (letters) | `blue!5` / `blue!35!black`     | Illustrations tied to a definition   |
 | `theorem`   | Numbered within sections         | `orange!5` / `orange!70!black`        | Main results                         |
 | `lemma`     | Shares theorem counter           | `orange!5` / `orange!70!black`        | Supporting results                   |
 | `proposition`| Shares theorem counter          | `orange!5` / `orange!70!black`        | Mid-tier statements                  |

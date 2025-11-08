@@ -88,12 +88,23 @@
 	colback=red!5,
 	colframe=red!35!black,
 	fonttitle=\bfseries,
-}{prf}  
+}{prf}
+
+% Convenience wrapper: solution matching an exercise number
+% Usage: \begin{exercisesolution}{<exercise-label-suffix>} ... \end{exercisesolution}
+% Example: exercisesolution{intervals-inequalities} will title as
+%          "Solution <ref to ex:intervals-inequalities>" and label as sol:intervals-inequalities
+\newenvironment{exercisesolution}[1]{%
+	\begin{solution}{Solution~\getrefnumber{ex:#1}}{sol:#1}%
+	}{%
+	\end{solution}%
+}
   
 % Numbering formats for nested Example within Definition
 \makeatletter
-\newcommand{\thedefinition}{\thesection.\arabic{tcb@cnt@definition}}
-\newcommand{\theexample}{\thedefinition.\arabic{tcb@cnt@example}}
+\def\thedefinition{\thesection.\arabic{tcb@cnt@definition}}
+\def\thetcb@cnt@example{\thedefinition\alph{tcb@cnt@example}}
+\@addtoreset{tcb@cnt@example}{tcb@cnt@definition}
 \makeatother
 
 % Remark environment via amsthm
